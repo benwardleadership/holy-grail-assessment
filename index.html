@@ -710,28 +710,28 @@ renderApp();
       
       const studentData = JSON.parse(jsonPayload);
 
-      // The Patient Hound: Checks every 1 second forever until it finds the fields
+      // The Patient Hound: Checks every 1 second until the exact email screen loads
       const fillInterval = setInterval(() => {
         
-        const nameFields = document.querySelectorAll('[id="clientName"], [name="clientName"], [id="name"], [name="name"], [id="firstName"], [name="first_name"]');
-        const emailFields = document.querySelectorAll('[id="clientEmail"], [name="clientEmail"], [id="email"], [name="email"], [name="user_email"]');
+        // Exact IDs found in your custom HTML
+        const nameField = document.getElementById('inp-name');
+        const emailField = document.getElementById('inp-email');
 
-        if (nameFields.length > 0 || emailFields.length > 0) {
+        // Only fill them if they exist on the screen AND are currently empty
+        if (nameField || emailField) {
           
-          nameFields.forEach(field => {
-            field.value = studentData.first_name;
-            field.dispatchEvent(new Event('input', { bubbles: true }));
-            field.dispatchEvent(new Event('change', { bubbles: true }));
-          });
+          if (nameField && !nameField.value) {
+            nameField.value = studentData.first_name;
+            nameField.dispatchEvent(new Event('input', { bubbles: true }));
+          }
           
-          emailFields.forEach(field => {
-            field.value = studentData.email;
-            field.dispatchEvent(new Event('input', { bubbles: true }));
-            field.dispatchEvent(new Event('change', { bubbles: true }));
-          });
+          if (emailField && !emailField.value) {
+            emailField.value = studentData.email;
+            emailField.dispatchEvent(new Event('input', { bubbles: true }));
+          }
           
           console.log("Successfully found and pre-filled the Holy Grail form!");
-          clearInterval(fillInterval); // Turns off only AFTER success
+          clearInterval(fillInterval); 
         }
       }, 1000);
 
