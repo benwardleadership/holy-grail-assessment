@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Holy Grail Sales Leadership Assessment · Forward Leadership</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#072543; --navy-mid:#143F66; --cyan:#1DC0DC; --yellow:#FADE4C;
+  --light:#F4F8FB; --white:#fff; --mid:#23364A; --muted:#7A8DA0;
+  --border:#E3EAF0; --shadow:0 20px 60px rgba(7,37,67,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:Inter,-apple-system,sans-serif;background:var(--navy);color:var(--navy);}
+button,input{font-family:Inter,-apple-system,sans-serif;}
+
+/* ── INTRO ── */
+#screen-intro{min-height:100vh;background:radial-gradient(140% 160% at 20% 5%,var(--navy-mid) 0%,var(--navy) 52%,#041830 100%);color:#fff;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+.intro-nav{padding:24px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08);}
+.logo-mark{display:flex;align-items:center;gap:10px;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);}
+.book-tag{font-size:13px;color:rgba(255,255,255,.4);font-weight:600;}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;padding:64px 0 72px;}
+.eyebrow{font-weight:800;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px;}
+.hero-title{font-weight:900;font-size:56px;line-height:1.03;letter-spacing:-.025em;}
+.hl{background:var(--yellow);color:var(--navy);padding:2px 10px;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+.hero-sub{font-size:19px;line-height:1.65;color:#C7D7E5;margin-top:22px;max-width:520px;}
+.hero-meta{display:flex;gap:22px;margin-top:26px;flex-wrap:wrap;}
+.mpill{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;}
+.mdot{width:7px;height:7px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
+.hero-cta{margin-top:34px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.btn-primary{font-weight:800;font-size:17px;border:none;background:var(--cyan);color:var(--navy);padding:16px 34px;border-radius:999px;box-shadow:0 10px 30px rgba(29,192,220,.36);transition:transform 150ms,box-shadow 150ms;display:inline-flex;align-items:center;gap:8px;cursor:pointer;text-decoration:none;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(29,192,220,.46);}
+.hero-note{font-size:13px;color:rgba(199,215,229,.55);margin-top:14px;}
+
+/* Book mock */
+.book-card{background:#fff;border-radius:22px;padding:30px;box-shadow:0 40px 90px rgba(3,12,24,.55);}
+.book-mock{background:linear-gradient(135deg,var(--navy-mid) 0%,var(--navy) 100%);border-radius:14px;padding:32px 24px;text-align:center;}
+.book-mock-subtitle{color:var(--cyan);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-top:18px;}
+.book-mock-title{color:#fff;font-size:19px;font-weight:900;margin-top:6px;line-height:1.15;}
+.book-mock-author{color:rgba(199,215,229,.6);font-size:12px;font-weight:600;margin-top:8px;}
+.scale-guide{margin-top:20px;border-top:1px solid var(--border);padding-top:18px;}
+.scale-guide-label{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;}
+.scale-guide-sub{font-size:13px;line-height:1.5;color:var(--mid);margin-bottom:12px;}
+.scale-boxes{display:flex;gap:6px;}
+.sbox{flex:1;text-align:center;padding:9px 4px;border-radius:8px;font-weight:800;font-size:15px;color:var(--navy);}
+.sbox-off{background:#F4F8FB;}
+.sbox-on{background:var(--cyan);}
+.scale-ends{display:flex;justify-content:space-between;margin-top:6px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+
+/* Dims preview */
+.dims-section{border-top:1px solid rgba(255,255,255,.08);padding:56px 0 88px;}
+.sec-title{font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:28px;text-align:center;}
+.dims-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+.dim-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:20px 22px;}
+.dim-num{font-size:10px;font-weight:800;color:var(--cyan);letter-spacing:.1em;margin-bottom:5px;}
+.dim-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;}
+.dim-blurb{font-size:13px;line-height:1.5;color:rgba(199,215,229,.7);}
+
+/* ── ASSESS ── */
+#screen-assess{min-height:100vh;background:var(--light);}
+.sticky-bar{position:sticky;top:0;z-index:10;background:rgba(244,248,251,.93);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.assess-nav{max-width:740px;margin:0 auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between;}
+.dim-badge{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);}
+.exit-btn{background:none;border:none;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;}
+.prog-wrap{max-width:740px;margin:0 auto;padding:0 24px 14px;}
+.prog-track{height:5px;background:var(--border);border-radius:999px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--cyan);border-radius:999px;transition:width 350ms cubic-bezier(.2,.7,.3,1);}
+.assess-body{max-width:740px;margin:0 auto;padding:38px 24px 64px;}
+.sec-heading{font-weight:900;font-size:44px;color:var(--navy);letter-spacing:-.02em;line-height:1;}
+.sec-blurb{font-size:18px;line-height:1.55;color:var(--mid);margin-top:8px;}
+.scale-hint{display:flex;align-items:center;gap:14px;margin-top:18px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.hint-line{flex:1;height:1px;background:var(--border);}
+.questions{margin-top:26px;display:flex;flex-direction:column;gap:20px;}
+.q-block{background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 8px rgba(7,37,67,.05);}
+.q-text{font-size:17px;font-weight:600;color:var(--navy);line-height:1.45;margin-bottom:16px;}
+.q-opts{display:flex;gap:8px;}
+.q-opt{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:64px;padding:10px 4px;border-radius:10px;border:1.5px solid var(--border);background:#fff;color:var(--navy);font-size:18px;font-weight:800;cursor:pointer;transition:all 140ms cubic-bezier(.2,.7,.3,1);}
+.q-opt:hover{border-color:var(--cyan);background:rgba(29,192,220,.06);}
+.q-opt.sel{background:var(--cyan);border-color:var(--cyan);box-shadow:0 6px 18px rgba(29,192,220,.3);transform:translateY(-2px);}
+.q-opt-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;opacity:.65;}
+.q-opt.sel .q-opt-lbl{opacity:.8;}
+.assess-footer{display:flex;align-items:center;justify-content:space-between;margin-top:32px;padding-top:22px;border-top:1px solid var(--border);}
+.btn-back{background:none;border:1.5px solid var(--border);color:var(--muted);font-weight:700;font-size:15px;padding:13px 24px;border-radius:999px;cursor:pointer;}
+.answered-ct{font-size:13px;font-weight:700;color:var(--muted);}
+.btn-next{font-weight:800;font-size:16px;border:none;padding:14px 30px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;transition:all 150ms;}
+.btn-next.on{background:var(--cyan);color:var(--navy);cursor:pointer;box-shadow:0 8px 22px rgba(29,192,220,.34);}
+.btn-next.off{background:#DCE4EB;color:#9DB0C0;cursor:not-allowed;}
+
+/* ── EMAIL ── */
+#screen-email{min-height:100vh;background:var(--light);display:flex;align-items:center;justify-content:center;padding:60px 24px;}
+.email-card{max-width:500px;width:100%;background:#fff;border-radius:24px;box-shadow:var(--shadow);padding:50px 44px;text-align:center;}
+.email-title{font-weight:900;font-size:31px;color:var(--navy);line-height:1.1;letter-spacing:-.015em;margin:12px 0;}
+.email-body{font-size:16px;line-height:1.65;color:var(--mid);}
+.fields{text-align:left;margin-top:24px;display:flex;flex-direction:column;gap:14px;}
+.flabel{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+.finput{width:100%;padding:14px 18px;border:1.5px solid var(--border);border-radius:12px;font-size:16px;color:var(--navy);outline:none;transition:border-color 150ms;}
+.finput:focus{border-color:var(--cyan);}
+.privacy{margin-top:12px;font-size:12px;color:var(--muted);}
+.skip-btn{background:none;border:none;color:var(--muted);font-size:13px;text-decoration:underline;margin-top:14px;display:block;cursor:pointer;width:100%;}
+
+/* ── RESULTS ── */
+#screen-results{min-height:100vh;background:var(--light);}
+.res-header{background:radial-gradient(130% 160% at 16% 8%,var(--navy-mid) 0%,var(--navy) 50%,#041830 100%);color:#fff;padding-bottom:52px;}
+.res-top{max-width:920px;margin:0 auto;padding:36px 32px;}
+.res-nav{display:flex;align-items:center;justify-content:space-between;}
+.retake-btn{background:rgba(255,255,255,.1);border:none;color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:999px;cursor:pointer;}
+.score-row{display:flex;align-items:flex-end;gap:14px;margin-top:28px;}
+.score-big{font-weight:900;font-size:96px;line-height:.85;}
+.score-of{font-weight:700;font-size:22px;color:var(--cyan);padding-bottom:14px;}
+.band-meter{display:flex;gap:6px;margin-top:26px;flex-wrap:wrap;}
+.band-chip{flex:1;min-width:76px;padding:10px 12px;border-radius:10px;font-size:12px;font-weight:800;line-height:1.15;}
+.chip-range{font-size:10px;opacity:.72;margin-top:2px;}
+.stage-title{font-weight:900;font-size:40px;line-height:1.06;letter-spacing:-.015em;margin-top:30px;}
+.stage-body{font-size:17px;line-height:1.7;color:#C7D7E5;max-width:640px;margin-top:14px;}
+.quest-lbl{font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-top:24px;margin-bottom:10px;}
+.quest-chip{display:inline-block;background:var(--yellow);color:var(--navy);font-weight:800;font-size:18px;padding:12px 20px;border-radius:10px;}
+
+.res-body{max-width:920px;margin:0 auto;padding:40px 32px 88px;}
+.res-sec-lbl{font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;}
+.res-card{background:#fff;border-radius:18px;box-shadow:0 4px 14px rgba(7,37,67,.07);overflow:hidden;}
+.dim-row{display:flex;align-items:center;gap:14px;padding:16px 24px;border-bottom:1px solid #EDF2F6;}
+.dim-row:last-child{border-bottom:none;}
+.dim-rname{flex:none;width:168px;font-weight:700;font-size:14px;color:var(--navy);}
+.nq-badge{display:inline-block;margin-top:4px;background:var(--yellow);color:var(--navy);font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:999px;}
+.dim-track{flex:1;height:10px;background:#EAF1F6;border-radius:999px;overflow:hidden;}
+.dim-fill{height:100%;border-radius:999px;background:var(--cyan);transition:width 600ms cubic-bezier(.2,.7,.3,1);}
+.dim-fill.lo{background:var(--yellow);}
+.dim-score{flex:none;width:52px;text-align:right;font-weight:800;font-size:15px;color:var(--navy);}
+
+.radar-wrap{margin-top:24px;background:#fff;border-radius:18px;box-shadow:0 4px 14px rgba(7,37,67,.07);padding:28px 24px;}
+
+.quest-card{margin-top:24px;background:#fff;border-left:5px solid var(--cyan);border-radius:0 18px 18px 0;box-shadow:0 4px 14px rgba(7,37,67,.07);padding:28px 32px;}
+.quest-dim-name{font-weight:900;font-size:22px;color:var(--navy);margin-bottom:8px;}
+.quest-dim-q{font-size:17px;font-weight:700;color:var(--cyan);margin-bottom:14px;font-style:italic;}
+.quest-dim-insight{font-size:16px;line-height:1.7;color:var(--mid);}
+.quest-week{margin-top:18px;padding:18px 20px;background:rgba(250,222,76,.1);border-radius:10px;border-left:3px solid var(--yellow);}
+.quest-week-lbl{font-weight:800;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#907A00;margin-bottom:6px;}
+.quest-week-text{font-size:15px;color:var(--mid);line-height:1.6;}
+
+.grail-card{margin-top:24px;background:radial-gradient(130% 160% at 12% 10%,var(--navy-mid) 0%,var(--navy) 50%,#041830 100%);color:#fff;border-radius:18px;padding:44px 40px;}
+.grail-script{font-family:'Dancing Script',cursive;color:var(--cyan);font-size:28px;line-height:1;}
+.grail-quote{font-weight:800;font-size:23px;line-height:1.38;margin-top:14px;}
+.grail-sub{font-size:17px;line-height:1.65;color:#C7D7E5;margin-top:16px;}
+
+.cta-card{margin-top:24px;background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:44px 40px;text-align:center;}
+.cta-title{font-weight:900;font-size:29px;color:var(--navy);line-height:1.1;letter-spacing:-.01em;margin:10px 0 12px;}
+.cta-body{font-size:16px;line-height:1.65;color:var(--mid);max-width:560px;margin:0 auto;}
+.cta-link{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-weight:800;font-size:18px;text-decoration:none;background:var(--cyan);color:var(--navy);padding:17px 36px;border-radius:999px;box-shadow:0 10px 30px rgba(29,192,220,.34);transition:transform 150ms,box-shadow 150ms;}
+.cta-link:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(29,192,220,.44);}
+.sign-off{margin-top:32px;}
+.sign-script{font-family:'Dancing Script',cursive;color:var(--cyan);font-size:27px;line-height:1;}
+.sign-name{font-size:13px;font-weight:700;color:var(--muted);margin-top:6px;}
+.retake-wrap{text-align:center;margin-top:28px;}
+.retake-txt{background:none;border:none;color:#16A6BF;font-size:14px;font-weight:700;text-decoration:underline;cursor:pointer;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:720px){
+  .hero-grid{grid-template-columns:1fr;gap:36px;}
+  .hero-title{font-size:38px;}
+  .book-card{display:none;}
+  .dims-grid{grid-template-columns:1fr 1fr;}
+  .sec-heading{font-size:32px;}
+  .q-opts{gap:5px;}
+  .q-opt{font-size:16px;min-height:56px;}
+  .score-big{font-size:72px;}
+  .stage-title{font-size:30px;}
+  .dim-rname{width:120px;font-size:13px;}
+  .res-top{padding:28px 20px;}
+  .res-body{padding:28px 16px 60px;}
+  .grail-card,.cta-card{padding:30px 24px;}
+  .email-card{padding:36px 24px;}
+  .quest-card{padding:24px 22px;}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────
+
+const SECTIONS = [
+  {
+    name:'Trust', chartName:'Trust',
+    blurb:'Do people bring you the truth before it is too late?',
+    lowestQ:'Do people trust my heart, or just respect my position?',
+    insight:'Trust is the currency of leadership. When people trust your motives, they bring you problems early enough to solve them. Without it, you only hear what people think you want to hear — and by the time you learn the truth, the cost is already high.',
+    statements:[
+      'My people bring me bad news early.',
+      'My team trusts my motives, even when I challenge them.',
+      'People are honest with me before problems become serious.',
+      'My team believes I want their success, not just their production.',
+      'People feel safe telling me what I may not want to hear.'
+    ]
+  },
+  {
+    name:'Genshai', chartName:'Genshai',
+    blurb:'Do people leave conversations with you feeling bigger, never smaller?',
+    lowestQ:'Do people leave my leadership bigger or smaller?',
+    insight:'Genshai is the ancient principle of never treating anyone in a way that makes them feel small — including yourself. The most powerful leaders correct performance without attacking identity. They challenge people because they believe in them, not because they are frustrated.',
+    statements:[
+      'People leave conversations with me feeling bigger, not smaller.',
+      'I correct performance without attacking identity.',
+      'I see people as people, not numbers, problems, tools, or interruptions.',
+      'My words preserve dignity, even when I am direct.',
+      'I do not use sarcasm, shame, fear, or public pressure to motivate.'
+    ]
+  },
+  {
+    name:'Standards', chartName:'Standards',
+    blurb:'Do you raise the bar without simply raising the pressure?',
+    lowestQ:'Am I being clear, or just applying pressure?',
+    insight:'High standards and high humanity are not opposites. The best leaders make expectations crystal clear before they hold people accountable. They challenge because they believe people are capable of more — and they can be firm without becoming harsh.',
+    statements:[
+      'My team knows exactly what great looks like.',
+      'I make expectations clear before I hold people accountable.',
+      'I raise standards without simply raising pressure.',
+      'I challenge people because I believe in them, not because I am frustrated.',
+      'I can be firm without becoming harsh.'
+    ]
+  },
+  {
+    name:'Hard Conversations', chartName:'Hard Conv.',
+    blurb:'Do you tell the truth without crushing the person?',
+    lowestQ:'What conversation am I avoiding right now?',
+    insight:'Avoided conversations do not disappear. They accumulate. The leaders who make the greatest difference are the ones who prepare their hearts before they open their mouths — and who can tell the truth without making the person feel crushed.',
+    statements:[
+      'I do not avoid hard conversations that need to happen.',
+      'I prepare my heart before I correct someone.',
+      'I can tell the truth without making the person feel crushed.',
+      'People leave hard conversations with more clarity and commitment.',
+      'I ask permission to challenge when the relationship needs it.'
+    ]
+  },
+  {
+    name:'Artificial Harmony', chartName:'Art. Harmony',
+    blurb:'Does the real conversation happen in the room?',
+    lowestQ:'What is everyone thinking but nobody is saying?',
+    insight:'Artificial harmony is the quiet killer of team performance. When people nod in meetings and complain in hallways, the real conversation never surfaces. Great leaders invite truth instead of punishing it — and silence on their team means alignment, not fear.',
+    statements:[
+      'The real conversations happen in the meeting, not after it.',
+      'People speak up when they disagree.',
+      'My team does not hide tension to keep the peace.',
+      'I invite truth instead of punishing it.',
+      'Silence on my team usually means alignment, not fear.'
+    ]
+  },
+  {
+    name:'Repair', chartName:'Repair',
+    blurb:'Do you own your mistakes and rebuild trust quickly?',
+    lowestQ:'Where do I need to own it, apologize, and rebuild trust?',
+    insight:'The greatest leaders are not the ones who never get it wrong. They are the ones who own it when they do. Leaders who model humility — not just demand it — create cultures where mistakes become learning instead of liability.',
+    statements:[
+      'I own my mistakes without defending myself.',
+      'I apologize when my leadership makes someone feel small.',
+      'I repair trust quickly when I damage it.',
+      'I can admit when pressure, ego, or fear drove my behavior.',
+      'My team sees me model humility, not just demand it.'
+    ]
+  },
+  {
+    name:'Multiplication', chartName:'Multiply',
+    blurb:'Are you building leaders who build leaders?',
+    lowestQ:'Am I building followers or leaders?',
+    insight:'The ultimate measure of leadership is not what you produce while you are present — it is what grows after you leave the room. Multiplying leaders means teaching your managers to lead hard conversations, hold standards with dignity, and build trust on their own.',
+    statements:[
+      'People become better leaders because they are led by me.',
+      'I am building leaders, not just followers.',
+      'My managers are learning to lead hard conversations well.',
+      'My team can produce results without constant pressure from me.',
+      'My leadership is creating leadership in others.'
+    ]
+  }
+];
+
+const SCALE = [
+  {v:1,lbl:'Rarely'},
+  {v:2,lbl:'Sometimes'},
+  {v:3,lbl:'Usually'},
+  {v:4,lbl:'Almost'},
+  {v:5,lbl:'Always'}
+];
+
+// 7 sections × 5 q × 5 max = 175, min = 35, 5 bands of 28 each
+const BANDS = [
+  {
+    short:'Controller', range:'35–62',
+    title:'The Pressure-Based Controller',
+    body:'You care deeply about results. But your leadership may be producing fear, compliance without commitment, and silence instead of truth. People perform for you. They do not yet fully trust you. The good news: you have the drive. Now the work is to direct it toward people, not just production.',
+    quest:'Raise standards without lowering people.',
+    color:'#E05252', bg:'rgba(224,82,82,.12)',
+    advice:'Start with Trust and Genshai. Ask one person on your team this week: "What is something you have been hesitant to tell me?" Then listen without defending.'
+  },
+  {
+    short:'Avoider', range:'63–90',
+    title:'The Well-Meaning Avoider',
+    body:'You care about people. But you may be delaying clarity, correction, and hard conversations until small problems become large ones. Kindness without candor is not kindness — it is avoidance wearing a friendly mask. The cost of silence always comes due.',
+    quest:'Tell the truth sooner, with dignity.',
+    color:'#E07A30', bg:'rgba(224,122,48,.12)',
+    advice:'Focus on Hard Conversations and Standards. Identify the one conversation you have been postponing. Prepare your heart first — then have it within 48 hours.'
+  },
+  {
+    short:'Harmony', range:'91–118',
+    title:'The Artificial Harmony Manager',
+    body:'Your team looks aligned on the surface. Underneath, there may be unspoken tension, quiet disengagement, and truth nobody is saying out loud. You are building a culture of performance — now it needs to become a culture of honesty.',
+    quest:'Build a culture where people tell the truth early.',
+    color:'#C4A820', bg:'rgba(196,168,32,.12)',
+    advice:'In your next team meeting, ask: "What is something we all know but have not said out loud?" Create space for the answer — and do not flinch when it comes.'
+  },
+  {
+    short:'Rising Leader', range:'119–146',
+    title:'The Soft-Like-a-Brick Leader',
+    body:'You are learning to hold strength and dignity together. You can raise the standard and protect the person in the same conversation. You are closer than you think. The Grail is in reach — keep going.',
+    quest:'Keep leading hard conversations that make people better.',
+    color:'#2E9E6A', bg:'rgba(46,158,106,.12)',
+    advice:'Focus on Repair and Multiplication. Now that you lead well, start teaching it. Who on your team needs to watch how you handle a hard conversation? Bring them into it.'
+  },
+  {
+    short:'Multiplier', range:'147–175',
+    title:'The Grail Multiplier',
+    body:'You are not just leading people. You are building leaders who build leaders. The Grail is multiplying through you. People leave your leadership bigger. They tell you the truth. They trust your heart. Now the question is: who are you multiplying this into?',
+    quest:'Multiply it through your managers, your language, and your systems.',
+    color:'#1DC0DC', bg:'rgba(29,192,220,.12)',
+    advice:'Build the systems, the language, and the coaching rituals that outlast you. Your next level is not getting better at leading people — it is making your managers better at leading people.'
+  }
+];
+
+const UNI_URL = 'https://sellershipuniversity.com';
+
+// ── STATE ─────────────────────────────────────────────────────────────
+
+let S = {screen:'intro',sectionIndex:0,answers:{},email:'',name:''};
+
+function loadS(){
+  try{const r=localStorage.getItem('hg-v3');if(r)Object.assign(S,JSON.parse(r));}catch(e){}
+}
+function saveS(){
+  try{localStorage.setItem('hg-v3',JSON.stringify(S));}catch(e){}
+}
+
+// ── COMPUTED ──────────────────────────────────────────────────────────
+
+function secScore(si){
+  return SECTIONS[si].statements.reduce((n,_,qi)=>n+(S.answers[si+'-'+qi]||0),0);
+}
+function secAnswered(si){
+  return SECTIONS[si].statements.filter((_,qi)=>S.answers[si+'-'+qi]!=null).length;
+}
+function totalScore(){
+  return SECTIONS.reduce((n,_,i)=>n+secScore(i),0);
+}
+function bandIdx(score){
+  return Math.max(0,Math.min(4,Math.floor((score-35)/28)));
+}
+function lowestSec(){
+  let lo=0,loS=Infinity;
+  SECTIONS.forEach((_,i)=>{const s=secScore(i);if(s<loS){loS=s;lo=i;}});
+  return lo;
+}
+
+// ── ACTIONS ───────────────────────────────────────────────────────────
+
+function go(updates){Object.assign(S,updates);saveS();renderApp();window.scrollTo({top:0,behavior:'instant'});}
+function begin(){go({screen:'assess',sectionIndex:0});}
+function exitAssess(){go({screen:'intro'});}
+function goBack(){S.sectionIndex>0?go({sectionIndex:S.sectionIndex-1}):go({screen:'intro'});}
+function goNext(){
+  const si=S.sectionIndex;
+  if(secAnswered(si)<SECTIONS[si].statements.length)return;
+  si<SECTIONS.length-1?go({sectionIndex:si+1}):go({screen:'email'});
+}
+function toResults(){go({screen:'results'});}
+function restart(){
+  if(!confirm('Start over? This will clear your answers.'))return;
+  go({screen:'intro',sectionIndex:0,answers:{},email:'',name:''});
+}
+
+function pickAnswer(si,qi,v){
+  S.answers={...S.answers,[si+'-'+qi]:v};
+  saveS();
+  // update in place (no full re-render)
+  document.querySelectorAll('.q-opt').forEach(b=>{
+    if(+b.dataset.si===si&&+b.dataset.qi===qi)
+      b.classList.toggle('sel',+b.dataset.v===v);
+  });
+  const ans=secAnswered(si);
+  const tot=SECTIONS[si].statements.length;
+  const ct=document.querySelector('.answered-ct');
+  const nb=document.getElementById('btn-next');
+  if(ct)ct.textContent=ans+' of '+tot+' answered';
+  if(nb){nb.className='btn-next '+(ans===tot?'on':'off');nb.disabled=ans!==tot;}
+  // progress
+  const totalQ=SECTIONS.length*5;
+  const totalAns=SECTIONS.slice(0,si).reduce((n,_,i2)=>n+secAnswered(i2),0)+ans;
+  const pf=document.querySelector('.prog-fill');
+  if(pf)pf.style.width=Math.round(totalAns/totalQ*100)+'%';
+}
+
+// ── SVG HELPERS ───────────────────────────────────────────────────────
+
+function grailSVG(sz){
+  return `<svg width="${sz}" height="${sz}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22 22h56a28 28 0 0 1-28 36 28 28 0 0 1-28-36z" stroke="#1DC0DC" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M50 58v20" stroke="#1DC0DC" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M34 80h32" stroke="#1DC0DC" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M18 18q-14 0-14 14t18 18" stroke="#1DC0DC" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M82 18q14 0 14 14t-18 18" stroke="#1DC0DC" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="50" cy="40" r="7" fill="#FADE4C"/>
+  </svg>`;
+}
+
+function radarSVG(scores){
+  const cx=200,cy=200,r=130,n=SECTIONS.length,maxS=25;
+  function pt(i,pct){
+    const a=(-Math.PI/2)+(2*Math.PI/n*i);
+    return{x:cx+r*pct*Math.cos(a),y:cy+r*pct*Math.sin(a)};
+  }
+  const rings=[.25,.5,.75,1].map(p=>{
+    const ps=Array.from({length:n},(_,i)=>{const q=pt(i,p);return q.x.toFixed(1)+','+q.y.toFixed(1);}).join(' ');
+    return `<polygon points="${ps}" fill="none" stroke="${p===1?'#C8D8E4':'#E4EEF4'}" stroke-width="${p===1?1.5:1}"/>`;
+  }).join('');
+  const axes=Array.from({length:n},(_,i)=>{const p=pt(i,1);return`<line x1="${cx}" y1="${cy}" x2="${p.x.toFixed(1)}" y2="${p.y.toFixed(1)}" stroke="#DDE8EE" stroke-width="1"/>`;}).join('');
+  const filled=scores.map((s,i)=>{const p=pt(i,s/maxS);return p.x.toFixed(1)+','+p.y.toFixed(1);}).join(' ');
+  const dots=scores.map((s,i)=>{const p=pt(i,s/maxS);return`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4.5" fill="#1DC0DC"/>`;}).join('');
+  const labels=SECTIONS.map((sec,i)=>{
+    const lR=r+28,a=(-Math.PI/2)+(2*Math.PI/n*i);
+    const x=cx+lR*Math.cos(a),y=cy+lR*Math.sin(a);
+    const anchor=Math.abs(Math.cos(a))<0.12?'middle':Math.cos(a)>0?'start':'end';
+    return`<text x="${x.toFixed(1)}" y="${(y+4).toFixed(1)}" text-anchor="${anchor}" fill="#23364A" font-size="12" font-weight="700" font-family="Inter,sans-serif">${sec.chartName}</text>`;
+  }).join('');
+  return`<svg viewBox="-30 -20 460 440" width="100%" style="max-width:380px;display:block;margin:0 auto;">
+    ${rings}${axes}
+    <polygon points="${filled}" fill="rgba(29,192,220,.16)" stroke="#1DC0DC" stroke-width="2.5" stroke-linejoin="round"/>
+    ${dots}${labels}
+  </svg>`;
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────
+
+function renderApp(){
+  const app=document.getElementById('app');
+  if(S.screen==='intro')   app.innerHTML=renderIntro();
+  else if(S.screen==='assess')app.innerHTML=renderAssess();
+  else if(S.screen==='email') app.innerHTML=renderEmail();
+  else                         app.innerHTML=renderResults();
+  bind();
+}
+
+function renderIntro(){
+  return`<div id="screen-intro">
+  <div class="wrap">
+    <nav class="intro-nav">
+      <div class="logo-mark">${grailSVG(28)}<span>Forward Leadership</span></div>
+      <div class="book-tag">The Holy Grail of Sales Leadership</div>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">The Holy Grail Sales Leadership Assessment</div>
+        <h1 class="hero-title">Is your leadership making people&nbsp;<span class="hl">bigger</span>, or smaller?</h1>
+        <p class="hero-sub">Discover how your team actually experiences your leadership — and learn what it takes to raise standards without lowering people.</p>
+        <div class="hero-meta">
+          <span class="mpill"><span class="mdot"></span>7 Dimensions</span>
+          <span class="mpill"><span class="mdot"></span>35 Questions</span>
+          <span class="mpill"><span class="mdot"></span>~8 Minutes</span>
+          <span class="mpill"><span class="mdot"></span>Instant Results</span>
+        </div>
+        <div class="hero-cta">
+          <button class="btn-primary" id="btn-begin">Take the Assessment &nbsp;→</button>
+        </div>
+        <p class="hero-note">A mirror, not a judgment. A clear next step, not a score to perform for.</p>
+      </div>
+      <div class="book-card">
+        <div class="book-mock">
+          ${grailSVG(68)}
+          <div class="book-mock-subtitle">The Holy Grail of</div>
+          <div class="book-mock-title">Sales Leadership</div>
+          <div class="book-mock-author">Ben Ward</div>
+        </div>
+        <div class="scale-guide">
+          <div class="scale-guide-label">How you will score</div>
+          <div class="scale-guide-sub">Rate each statement 1–5 honestly. The Grail rewards truth, not performance.</div>
+          <div class="scale-boxes">
+            ${SCALE.map((s,i)=>`<div class="sbox ${i===4?'sbox-on':'sbox-off'}">${s.v}</div>`).join('')}
+          </div>
+          <div class="scale-ends"><span>Rarely</span><span>Consistently</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dims-section">
+    <div class="wrap">
+      <div class="sec-title">The Seven Dimensions of the Grail</div>
+      <div class="dims-grid">
+        ${SECTIONS.map((sec,i)=>`<div class="dim-card">
+          <div class="dim-num">Dimension ${i+1}</div>
+          <div class="dim-name">${sec.name}</div>
+          <div class="dim-blurb">${sec.blurb}</div>
+        </div>`).join('')}
+      </div>
+      <div style="text-align:center;margin-top:48px;">
+        <button class="btn-primary" id="btn-begin2">Begin the Assessment &nbsp;→</button>
+        <p class="hero-note" style="margin-top:14px;">Start with the mirror. Leave with clarity.</p>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
+function renderAssess(){
+  const si=S.sectionIndex,sec=SECTIONS[si];
+  const ans=secAnswered(si),total=sec.statements.length;
+  const totalQ=SECTIONS.length*5;
+  const totalAns=SECTIONS.slice(0,si).reduce((n,_,i2)=>n+secAnswered(i2),0)+ans;
+  const prog=Math.round(totalAns/totalQ*100);
+  const isLast=si===SECTIONS.length-1;
+  const allDone=ans===total;
+  return`<div id="screen-assess">
+  <div class="sticky-bar">
+    <div class="assess-nav">
+      <div class="dim-badge">Dimension ${si+1} of ${SECTIONS.length} · ${sec.name}</div>
+      <button class="exit-btn" id="btn-exit">Exit</button>
+    </div>
+    <div class="prog-wrap"><div class="prog-track"><div class="prog-fill" style="width:${prog}%"></div></div></div>
+  </div>
+  <div class="assess-body">
+    <h2 class="sec-heading">${sec.name}</h2>
+    <p class="sec-blurb">${sec.blurb}</p>
+    <div class="scale-hint"><span>1 = Rarely</span><span class="hint-line"></span><span>5 = Consistently</span></div>
+    <div class="questions">
+      ${sec.statements.map((stmt,qi)=>{
+        const cur=S.answers[si+'-'+qi];
+        return`<div class="q-block">
+          <div class="q-text">${qi+1}. ${stmt}</div>
+          <div class="q-opts">
+            ${SCALE.map(s=>`<button class="q-opt${cur===s.v?' sel':''}" data-si="${si}" data-qi="${qi}" data-v="${s.v}">
+              <span>${s.v}</span><span class="q-opt-lbl">${s.lbl}</span>
+            </button>`).join('')}
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+    <div class="assess-footer">
+      <button class="btn-back" id="btn-back">← Back</button>
+      <span class="answered-ct">${ans} of ${total} answered</span>
+      <button class="btn-next ${allDone?'on':'off'}" id="btn-next" ${allDone?'':'disabled'}>
+        ${isLast?'See My Results':'Next Dimension'} →
+      </button>
+    </div>
+  </div>
+</div>`;
+}
+
+function renderEmail(){
+  return`<div id="screen-email">
+  <div class="email-card">
+    <div style="margin:0 auto 16px;width:44px;">${grailSVG(44)}</div>
+    <div class="eyebrow" style="color:var(--cyan);">Your results are ready</div>
+    <h2 class="email-title">See where your leadership lives right now</h2>
+    <p class="email-body">Enter your email and we will reveal your Grail score, your leadership stage, and the one quest that moves you furthest.</p>
+    <div class="fields">
+      <div>
+        <label class="flabel">Work email</label>
+        <input class="finput" id="inp-email" type="email" placeholder="you@company.com" value="${S.email}">
+      </div>
+      <div>
+        <label class="flabel">First name <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
+        <input class="finput" id="inp-name" type="text" placeholder="Your name" value="${S.name}">
+      </div>
+    </div>
+    <button class="btn-primary" id="btn-submit" style="width:100%;justify-content:center;margin-top:24px;">Show My Results &nbsp;→</button>
+    <div class="privacy">No spam. Unsubscribe anytime.</div>
+    <button class="skip-btn" id="btn-skip">Skip for now</button>
+  </div>
+</div>`;
+}
+
+function renderResults(){
+  const score=totalScore(),maxS=175;
+  const bi=bandIdx(score),band=BANDS[bi];
+  const lsi=lowestSec(),lsec=SECTIONS[lsi];
+  const scores=SECTIONS.map((_,i)=>secScore(i));
+  const pctScore=Math.round(score/maxS*100);
+
+  const bandMeter=BANDS.map((b,i)=>{
+    const act=i===bi;
+    return`<div class="band-chip" style="background:${act?b.color:b.bg};color:${act?'#fff':b.color};border:2px solid ${act?b.color:'transparent'};">
+      <div>${b.short}</div><div class="chip-range">${b.range}</div>
+    </div>`;
+  }).join('');
+
+  const dimRows=SECTIONS.map((sec,i)=>{
+    const s=secScore(i),p=Math.round(s/25*100),isLo=i===lsi;
+    return`<div class="dim-row">
+      <div class="dim-rname"><div>${sec.name}</div>${isLo?'<div class="nq-badge">Next Quest</div>':''}</div>
+      <div class="dim-track"><div class="dim-fill${isLo?' lo':''}" style="width:${p}%"></div></div>
+      <div class="dim-score">${s}/25</div>
+    </div>`;
+  }).join('');
+
+  const greeting=S.name?`${S.name}, you are`:'You are';
+
+  return`<div id="screen-results">
+  <div class="res-header">
+    <div class="res-top">
+      <div class="res-nav">
+        <div class="logo-mark">${grailSVG(24)}<span>Forward Leadership</span></div>
+        <button class="retake-btn" id="btn-retake">Retake</button>
+      </div>
+      <div class="score-row">
+        <div class="score-big">${score}</div>
+        <div class="score-of">/ ${maxS}</div>
+      </div>
+      <div class="band-meter">${bandMeter}</div>
+      <h2 class="stage-title">${greeting}<br>${band.title}</h2>
+      <p class="stage-body">${band.body}</p>
+      <div class="quest-lbl">Your Grail Quest</div>
+      <div class="quest-chip">${band.quest}</div>
+    </div>
+  </div>
+  <div class="res-body">
+    <div class="res-sec-lbl">Your Seven Dimensions</div>
+    <div class="res-card">${dimRows}</div>
+
+    <div class="radar-wrap">
+      <div class="res-sec-lbl" style="margin-bottom:18px;">Your Leadership Profile</div>
+      ${radarSVG(scores)}
+    </div>
+
+    <div class="quest-card">
+      <div class="eyebrow" style="color:var(--cyan);">Your Lowest Dimension · Next Quest</div>
+      <div class="quest-dim-name">${lsec.name}</div>
+      <div class="quest-dim-q">"${lsec.lowestQ}"</div>
+      <div class="quest-dim-insight">${lsec.insight}</div>
+      <div class="quest-week">
+        <div class="quest-week-lbl">This week</div>
+        <div class="quest-week-text">${band.advice}</div>
+      </div>
+    </div>
+
+    <div class="grail-card">
+      <div class="grail-script">The Grail</div>
+      <p class="grail-quote">The Holy Grail of sales leadership is not getting more out of people. It is becoming the leader who makes people <span style="background:var(--yellow);color:var(--navy);padding:0 7px;-webkit-box-decoration-break:clone;box-decoration-break:clone;">bigger</span>, calls them higher, and teaches them to do the same.</p>
+      <p class="grail-sub">Raise standards without lowering people. Build leaders who build leaders. Because the numbers matter — but people are the harvest.</p>
+    </div>
+
+    <div class="cta-card">
+      <div class="eyebrow" style="color:var(--cyan);">Your next step</div>
+      <h3 class="cta-title">Continue the quest inside Sellership University</h3>
+      <p class="cta-body">The book shows you the Grail. Sellership University gives you the tools, the practice, and the community to live it. Learn to lead hard conversations, raise standards with dignity, and build a team that tells you the truth — every day.</p>
+      <a href="${UNI_URL}" target="_blank" rel="noopener" class="cta-link">Begin Your Grail Quest &nbsp;→</a>
+      <div class="sign-off">
+        <div class="grail-script">Make it a great day.</div>
+        <div class="sign-name">— Ben Ward · The Sellership System®</div>
+      </div>
+      ${S.email?`<div style="margin-top:16px;font-size:12px;color:var(--muted);">Results sent to ${S.email}</div>`:''}
+    </div>
+
+    <div class="retake-wrap">
+      <button class="retake-txt" id="btn-retake2">Retake the assessment</button>
+    </div>
+  </div>
+</div>`;
+}
+
+// ── BIND ──────────────────────────────────────────────────────────────
+
+function bind(){
+  const $=id=>document.getElementById(id);
+  if($('btn-begin'))    $('btn-begin').onclick   =begin;
+  if($('btn-begin2'))   $('btn-begin2').onclick  =begin;
+  if($('btn-exit'))     $('btn-exit').onclick    =exitAssess;
+  if($('btn-back'))     $('btn-back').onclick    =goBack;
+  if($('btn-next'))     $('btn-next').onclick    =goNext;
+  if($('btn-retake'))   $('btn-retake').onclick  =restart;
+  if($('btn-retake2'))  $('btn-retake2').onclick =restart;
+
+  document.querySelectorAll('.q-opt').forEach(b=>{
+    b.onclick=()=>pickAnswer(+b.dataset.si,+b.dataset.qi,+b.dataset.v);
+  });
+
+  const ie=$('inp-email'),iname=$('inp-name'),bs=$('btn-submit'),bsk=$('btn-skip');
+  if(ie) ie.oninput=e=>{S.email=e.target.value;};
+  if(iname) iname.oninput=e=>{S.name=e.target.value;};
+  if(bs) bs.onclick=()=>{
+    if(ie)S.email=ie.value;
+    if(iname)S.name=iname.value;
+    saveS();toResults();
+  };
+  if(bsk) bsk.onclick=toResults;
+}
+
+// ── BOOT ─────────────────────────────────────────────────────────────
+
+loadS();
+renderApp();
+</script>
+</body>
+</html>
