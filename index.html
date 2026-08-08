@@ -696,5 +696,43 @@ function bind(){
 loadS();
 renderApp();
 </script>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get('token');
+
+  if (token) {
+    try {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      
+      const studentData = JSON.parse(jsonPayload);
+
+      let attempts = 0;
+      const fillInterval = setInterval(() => {
+        attempts++;
+        
+        const nameFields = document.querySelectorAll('[id="clientName"], [name="clientName"], [id="name"], [name="name"], [id="firstName"]');
+        const emailFields = document.querySelectorAll('[id="clientEmail"], [name="clientEmail"], [id="email"], [name="email"]');
+
+        if (nameFields.length > 0 || emailFields.length > 0) {
+          nameFields.forEach(field => field.value = studentData.first_name);
+          emailFields.forEach(field => field.value = studentData.email);
+          console.log("Successfully pre-filled Holy Grail form!");
+          clearInterval(fillInterval); 
+        }
+
+        if (attempts >= 10) {
+          clearInterval(fillInterval); 
+        }
+      }, 500);
+
+    } catch (error) {
+      console.error("Error decoding the token from WordPress:", error);
+    }
+  }
+</script>
 </body>
 </html>
