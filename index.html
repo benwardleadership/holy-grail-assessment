@@ -704,12 +704,16 @@ function bind(){
             email: S.email,
             total_score: score,
             leadership_stage: band.title,
-            stage_description: band.body, // <-- NEW LINE ADDED HERE
+            stage_description: band.body,
             grail_quest: band.quest,
             lowest_dimension: lsec.name,
             weekly_action: band.advice
           })
         }).catch(err => console.error("Webhook Error:", err));
+      }
+    } catch(err) {
+      console.error("Webhook Engine Error:", err);
+    }
     // ----------------------------------------
 
     toResults();
