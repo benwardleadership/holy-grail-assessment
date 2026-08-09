@@ -683,22 +683,22 @@ function bind(){
   const ie=$('inp-email'),iname=$('inp-name'),bs=$('btn-submit'),bsk=$('btn-skip');
   if(ie) ie.oninput=e=>{S.email=e.target.value;};
   if(iname) iname.oninput=e=>{S.name=e.target.value;};
+  
   if(bs) bs.onclick=()=>{
     if(ie)S.email=ie.value;
     if(iname)S.name=iname.value;
     saveS();
 
-    // --- NEW: Bulletproof GoHighLevel Webhook ---
+    // --- NEW: Bulletproof GoHighLevel Webhook Trigger ---
     try {
       if (S.email) {
         const score = totalScore();
         const band = BANDS[bandIdx(score)];
         const lsec = SECTIONS[lowestSec()];
 
-        // MAKE SURE YOUR URL IS INSIDE THE QUOTES BELOW!
-        fetch("https://services.leadconnectorhq.com/hooks/hSaFvrJCzT0Sm24oVo9H/webhook-trigger/5450a545-72cd-4e11-b493-73f06048bcd8, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+        fetch('https://services.leadconnectorhq.com/hooks/hSaFvrJCzT0Sm24oVo9H/webhook-trigger/5450a545-72cd-4e11-b493-73f06048bcd8', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             first_name: S.name,
             email: S.email,
@@ -708,15 +708,18 @@ function bind(){
             lowest_dimension: lsec.name,
             weekly_action: band.advice
           })
-        }).catch(err => console.error("Fetch Error:", err));
+        }).catch(err => console.error("Webhook Error:", err));
       }
-    } catch (err) {
+    } catch(err) {
       console.error("Webhook Engine Error:", err);
     }
-    // --------------------------------------------
+    // ----------------------------------------
 
     toResults();
   };
+  
+  if(bsk) bsk.onclick=toResults;
+}
 // ── BOOT ─────────────────────────────────────────────────────────────
 
 loadS();
