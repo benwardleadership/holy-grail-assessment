@@ -686,10 +686,32 @@ function bind(){
   if(bs) bs.onclick=()=>{
     if(ie)S.email=ie.value;
     if(iname)S.name=iname.value;
-    saveS();toResults();
+    saveS();
+
+    // --- NEW: GoHighLevel Webhook Trigger ---
+    if (S.email) {
+      const score = totalScore();
+      const band = BANDS[bandIdx(score)];
+      const lsec = SECTIONS[lowestSec()];
+
+      fetch('https://services.leadconnectorhq.com/hooks/hSaFvrJCzT0Sm24oVo9H/webhook-trigger/5450a545-72cd-4e11-b493-73f06048bcd8', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name: S.name,
+          email: S.email,
+          total_score: score,
+          leadership_stage: band.title,
+          grail_quest: band.quest,
+          lowest_dimension: lsec.name,
+          weekly_action: band.advice
+        })
+      }).catch(err => console.error("Webhook Error:", err));
+    }
+    // ----------------------------------------
+
+    toResults();
   };
-  if(bsk) bsk.onclick=toResults;
-}
 
 // ── BOOT ─────────────────────────────────────────────────────────────
 
